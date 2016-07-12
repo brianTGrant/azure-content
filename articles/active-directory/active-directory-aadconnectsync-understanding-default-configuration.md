@@ -43,7 +43,7 @@ The following user objects are **not** synchronized to Azure AD:
 - Do not synchronize Exchange accounts which would not work in Exchange Online.
     - `[sAMAccountName] = "SUPPORT_388945a0"`
     - `Left([mailNickname], 14) = "SystemMailbox{"`
-    - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
+    - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))` this is incorrect & should be removed
     - `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 - Do not synchronize objects which would not work in Exchange Online.
 `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
