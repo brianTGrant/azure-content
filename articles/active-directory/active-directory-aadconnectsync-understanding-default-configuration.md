@@ -37,6 +37,7 @@ A user object must satisfy the following to be synchronized:
 
 The following user objects are **not** synchronized to Azure AD:
 
+adminDescription','User_','NOTSTARTSWITH' ` If the adminDescription attribute is popluated with User_ the user won't sync.
 - `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrator account, are not synchronized.
 - `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This would only practically happen in a domain upgraded from NT4.
 - `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Azure AD Connect sync and its earlier versions.
